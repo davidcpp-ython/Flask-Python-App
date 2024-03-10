@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<style>
+  body {
+    background-color: #343a40;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+  }
+
+  form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background-color: #2d2d2d;
+  }
+
+  h3 {
+    color: #007bff;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  label {
+    color: #ced4da;
+  }
+
+  .form-control {
+    border: 1px solid #495057;
+    border-radius: 5px;
+    background-color: #495057;
+    color: #fff;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  button.btn-primary {
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  button.btn-primary:hover {
+    background-color: #0056b3;
+  }
+</style>
+
+<form method="POST">
+  <h3>Login</h3>
+  <div class="form-group">
+    <label for="email">Email Address</label>
+    <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" />
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" />
+  </div>
+  <br />
+  <button type="submit" class="btn btn-primary">Login</button>
+</form>
+{% endblock %}

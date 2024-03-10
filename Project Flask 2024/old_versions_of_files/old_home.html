@@ -1,0 +1,39 @@
+{% extends "base.html" %} {% block title %} Home {% endblock %} {% block content %}
+<h1 align="center">Patients</h1>
+<div class="alert alert-info" role="alert">
+    Logged in as: {{ user.first_name }} ({{ user.email }})
+    <a href="{{ url_for('auth.logout') }}" class="btn btn-danger btn-sm float-right">Logout</a>
+</div>
+<ul class="list-group list-group-flash" id="patients">
+    {% for patient in all_patients %}
+    <li class="list-group-item">
+        Name: {{ patient.patient_name }}<br>
+        Allergy: {{ patient.allergy }}<br>
+        Contact: {{ patient.contact }}<br>
+        Meds: {{ patient.meds }}<br>
+        Date: {{ patient.date }}<br>
+        Added by: {{ patient.added_by }}<br>
+        <button type="button" class="close" onClick="deletePatient({{ patient.id }})">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </li>
+    {% endfor %}
+</ul>
+<form method="POST">
+    <label for="patient_name">Patient Name:</label>
+    <input type="text" name="patient_name" id="patient_name" class="form-control" required>
+
+    <label for="allergy">Allergy:</label>
+    <input type="text" name="allergy" id="allergy" class="form-control" placeholder="Optional">
+
+    <label for="allergy">Contact:</label>
+    <input type="text" name="contact" id="contact" class="form-control" required>
+
+    <label for="allergy">Meds:</label>
+    <input type="text" name="meds" id="meds" class="form-control" placeholder="Optional">
+    <br />
+    <div align="center">
+        <button type="submit" class="btn btn-primary">Add Patient</button>
+    </div>
+</form>
+{% endblock %}

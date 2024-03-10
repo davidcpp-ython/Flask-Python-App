@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %}Emergencies{% endblock %}
+{% block content %}
+<style>
+    body {
+        background-color: #1a1a1a;
+        color: #fff;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .container {
+        margin-top: 50px;
+    }
+
+    .list-group-item {
+        background-color: #2d2d2d;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        margin-bottom: 20px;
+        padding: 20px;
+        position: relative;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s ease;
+    }
+
+    .list-group-item strong {
+        color: #55acee;
+    }
+
+    .list-group-item:hover {
+        background-color: #3d3d3d;
+    }
+
+    h2 {
+        color: #fff;
+        font-size: 2em;
+        margin-bottom: 0;
+    }
+</style>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <h2 class="mb-0 text-center">Emergency Patients</h2>
+            <ul class="list-group list-group-flash" id="emergency-patients">
+                {% for patient in emergency_patients %}
+                <li class="list-group-item">
+                    <strong>Name:</strong> {{ patient.patient_name }}<br>
+                    <strong>Allergy:</strong> {{ patient.allergy }}<br>
+                    <strong>Contact:</strong> {{ patient.contact }}<br>
+                    <strong>Meds:</strong> {{ patient.meds }}<br>
+                    <strong>Added by:</strong> {{ patient.added_by }}<br>
+                    <strong>Additional Notes:</strong> {{ patient.additional_notes }}<br>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
